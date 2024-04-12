@@ -1,0 +1,35 @@
+﻿@model MVC_Input_Field_Example.Models.InputFieldModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    .submitButton {
+        width: 70px;
+        height: 40px;
+        font-size: 15px;
+    }
+</style>
+
+<div class="row">
+    <div class="row">
+        @if (string.IsNullOrEmpty(Model.Username))
+        {
+            <h3>No username entered</h3>
+        }
+        else
+        {
+            <h3>Username entered: @Model.Username</h3>
+        }
+    </div>
+    <div class="row">
+        <!-- SaveUsername er metoden SaveUsername fra HomeController -->
+        <!-- NB: Skriver bare Home og ikke HomeController, MVC fyller in 'Controller' selv -->
+        @using (Html.BeginForm("SaveUsername", "Home", FormMethod.Post))
+        {
+            <h4>Enter name: </h4>
+            @Html.TextBoxFor(model => model.Username)
+            <input type="submit" value="Submit" class="submitButton" />
+        }
+    </div>
+</div>
