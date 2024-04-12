@@ -2,6 +2,7 @@
 {
     public class InputFieldModel
     {
+        // Legger til et ? for å unngå "non-nullable" advarsler
         public string? Username { get; set; }
     }
 }
